@@ -1,0 +1,57 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Projeto web</title>
+</head>
+<body>
+    <div>
+        <label>Login:</label>
+        <input type="text" name="nome" id="nome" />
+        <label>Senha:</label>
+        <input type="password" name="senha" id="senha" />
+        <button onclick="Pesquisar()">
+            Pesquisar
+        </button>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        var foo = { nome: 'Giomar', sobrenome: 'Mendez', idade: 56 };
+
+        var bar = Object.create(foo);
+
+        bar.temskol = true;
+        bar.nome;
+        bar.sobrenome;
+        bar.idade;
+        bar.data = [
+            {
+                "Id": "1",
+                "Nome": "Giomar Juninho Mendez",
+                "Idade": "56"
+            },
+            {
+                "Id": "2",
+                "Nome": "Giomal Mendez Neto",
+                "Idade": "127"
+            },
+            {
+                "Id": "3",
+                "Nome": "bruno",
+                "Idade": "22"
+            }];
+
+        //$.each(bar.data[0], function (key, value) { alert("key:" + key + "Value" + value); });
+
+        function Pesquisar() {
+            $.each(bar.data,
+                function (index, object) {
+                    var contenctVal = $('#nome').val();
+
+                    if (object.Nome.indexOf(contenctVal)) {
+                        alert('Encontrado');
+                    }
+                });
+        }
+    </script>
+</body>
+</html>
