@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CEP</title>
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+</head>
+<body>
+    <input type="text" id="cep">
+    <button type="button" id="buscar">Buscar</button>
+    <div id="resultad"></div>
+    <script>
+        $('#buscar').click(function () {
+            $.ajax({
+                url: 'http://cep.republicavirtual.com.br/web_cep.php',
+                type: 'get',
+                dataType: 'json',
+                crossDomain: true,
+                data: {
+                    cep: $('#cep').val(), //pega valor do campo
+                    formato: 'json'
+                },
+                success: function (res) {
+                    $('#resultado').append('<strong>' + res.tipo_logradouro + '</strong>' + res.logradouro)
+                        .append('<strong>BAIRRO</strong>' + res.bairro)
+                        .append('<strong>CIDADE</strong>' + res.cidade + ' - ' + res.uf);
+                }
+            });
+        });</script>
+</body>
+</html>

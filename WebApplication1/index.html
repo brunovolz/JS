@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .stillo { width:500px;
+                  text-align: center;
+        }
+        .esquerda{  text-align:left;
+        }
+        .direita {  text-align:right
+        }
+    </style>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap-grid.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- https://httpbin.org/get -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12" style="background-color:#ff00db; text-align:center; padding:5px;">
+                <input id="Button1" class="col-6" type="button" value="Pesquisar" />
+            </div>
+            <div class="col-md-12" style="background-color:#16b3a9; text-align:center; padding:5px;">
+                <input id="Button2" class="col-6" type="button" value="Apagar" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="background-color:#b6ff00; text-align:center; padding:5px;">
+                <label for="AcceptEncoding">Accept-Encoding:</label>
+                <input type="text" id="AcceptEncoding" placeholder="Encoding" class="stillo"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="background-color:#ffffff; text-align:center; padding:5px;">
+                <label for="Accept">Accept:</label>
+                <input type="text" id="Accept" placeholder="Accept" class="stillo"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="background-color:#ff0000; text-align:center; padding:5px;">
+                <label for="AcceptLanguage">Accept-Language:</label>
+                <input type="text" id="AcceptLanguage" placeholder="Language"class="stillo" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="background-color:#ff6a00; text-align:center; padding:5px;">
+                <label for="CacheControl">Cache-Control:</label>
+                <input type="text" id="CacheControl" placeholder="Cache Control"class="stillo" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="background-color:#00ffff; text-align:center; padding:5px;">
+                <label for="Host">Host:</label>
+                <input type="text" id="Host" placeholder="Host" class="stillo"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="background-color:#b200ff; text-align:center; padding:5px;">
+                <label for="SecFetchMode">Sec-Fetch-Mode:</label>
+                <input type="text" id="SecFetchMode" placeholder="SecFetchMode" class="stillo"/>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-12" style="background-color:#ffd800; text-align:center; padding:5px;">
+                <label for="SecFetchSite">Sec-Fetch-Site:</label>
+                <input type="text" id="SecFetchSite" placeholder="SecFetchSite" class="stillo"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="background-color:#6d5f0e; text-align:center; padding:5px;">
+                <label for="SecFetchUser">Sec-Fetch-User:</label>
+                <input type="text" id="SecFetchUser" placeholder="SecFetchUser" class="stillo"/>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-12" style="background-color:#1c814c; text-align:center; padding:5px;">
+                <label for="UpgradeInsecureRequests">Upgrade-Insecure-Requests:</label>
+                <input type="text" id="UpgradeInsecureRequests" placeholder="UpgradeInsecureRequests" class="stillo"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="background-color:#0026ff; text-align:center; padding:5px;">
+                <label for="UserAgent">User-Agent:</label>
+                <input type="text" id="UserAgent" placeholder="UserAgent" class="stillo"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="background-color:#000000; text-align:center; padding:5px;">
+                <label for="origin"style="color: blanchedalmond">origin:</label>
+                <input type="text" id="origin" placeholder="origin"class="stillo" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="background-color:#7a2365; text-align:center; padding:5px;">
+                <label for="url"style="color: blanchedalmond">url:</label>
+                <input type="text" id="url" placeholder="url"class="stillo"/>
+            </div>
+        </div>
+        </div>
+        <div id="blockbackground" style="background-color:rgba(0,0,0,0.80); position:absolute; width:100%;height:100%;top:0; left:0">
+        </div>
+        <script src="Scripts/jquery-3.4.1.js"></script>
+        <script src="Scripts/bootstrap.bundle.js"></script>
+        <script src="Scripts/bootstrap.js"></script>
+        <script>
+            $('#blockbackground').hide();
+            $(function () {
+                $('#Button1').click(function () {
+                    $('#blockbackground').show(1000);
+
+                    $.get('https://httpbin.org/get', function (data, textStatus, jqXHR) {
+                        $('#blockbackground').hide();
+
+                        $('#Accept').val(data.headers.Accept);
+                        $('#AcceptEncoding').val(data.headers['Accept-Encoding']);
+                        $('#AcceptLanguage').val(data.headers['Accept-Language']);
+                        $('#CacheControl').val(data.headers['CacheControl']);
+                        $('#Host').val(data.headers['Host']);
+                        $('#SecFetchMode').val(data.headers['Sec-Fetch-Mode']);
+                        $('#SecFetchSite').val(data.headers['Sec-Fetch-Site']);
+                        $('#SecFetchUser').val(data.headers['Sec-Fetch-User"']);
+                        $('#UpgradeInsecureRequests').val(data.headers['Upgrade-Insecure-Requests']);
+                        $('#UserAgent').val(data.headers['User-Agent']);
+                        $('#origin').val(data.origin);
+                        $('#url').val(data.url);
+
+                        //alert(data + " status" + textStatus);
+                        //var textJson = JSON.stringify(data, undefined, 4);
+                        //$('#TextArea1').append(textJson);
+                    });
+                });
+            });
+        </script>
+</body>
+</html>
