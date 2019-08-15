@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Login HBTech</title>
+</head>
+<body>
+    <button onclick="Aumentar()" style="height:35px;font-size:16px;">Aumentar fonte</button>
+    <button onclick="Diminuir()" style="height:35px;font-size:16px;">Diminuir fonte</button>
+    <div>
+        Login:<input onclick="Aumentar()" id="inputLogin" type="text" style="height:35px;font-size:16px;" />
+    </div>
+    <div>
+        Senha:<input onclick="Aumentar()" id="inputSenha" type="password" style="height:35px;font-size:16px;" />
+    </div>
+    <div>
+        <input type="button" value="Logar" width="300" height="300" />
+    </div>
+    <script>
+        var countIncrement = 16;
+        function Aumentar() {
+            var document1 = document.getElementById('inputLogin');
+            var document2 = document.getElementById('inputSenha');
+            countIncrement = countIncrement + 1;
+            document1.style.fontSize = (countIncrement) + "px";
+            document2.style.fontSize = (countIncrement) + "px";
+        }
+        function Diminuir() {
+            var document1 = document.getElementById('inputLogin');
+            var document2 = document.getElementById('inputSenha');
+            countIncrement = countIncrement - 1;
+            document1.style.fontSize = (countIncrement) + "px";
+            document2.style.fontSize = (countIncrement) + "px";
+        }
+    </script>
+</body>
+</html> 
