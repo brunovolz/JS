@@ -1,5 +1,4 @@
-
-    /* Ao carregar o documento o mesmo inicia o conteudo desde script*/
+	/* Ao carregar o documento o mesmo inicia o conteudo desde script*/
   	jQuery(document).ready(function(){
 		/* Indica que o evento submit do form irá realizar esta ação agora*/
 		jQuery('#formusuarios').submit(function(){
@@ -8,7 +7,7 @@
 
 			 var settings = {
 			  "crossDomain": true,
-			  "url": "https://localhost:44317/Api/Usuarios",
+			  "url": "http://localhost:59271/Api/Usuarios",
 			  "method": "POST",
 			  "headers": {
 				"Content-Type": "application/x-www-form-urlencoded",
@@ -63,7 +62,7 @@
         var settings = {
 			"async": true,
 			"crossDomain": true,
-			"url": "https://localhost:44317/Api/Usuarios/"+id,
+			"url": "http://localhost:59271/Api/Usuarios/"+id,
 			"method": "GET",
 				"headers": {
 					"Content-Type": "application/json",
@@ -88,7 +87,7 @@
 
 		 var settings = {
 		  "crossDomain": true,
-		  "url": "https://localhost:44317/Api/Usuarios/"+id,
+		  "url": "http://localhost:59271/Api/Usuarios/"+id,
 		  "method": "PUT",
 		  "headers": {
 			"Content-Type": "application/x-www-form-urlencoded",
@@ -105,7 +104,7 @@
 	function Deleting(id){
 			 var settings = {
 			  "crossDomain": true,
-			  "url": "https://localhost:44317/Api/Usuarios/"+id,
+			  "url": "http://localhost:59271/Api/Usuarios/"+id,
 			  "method": "DELETE",
 			  "headers": {
 				"Content-Type": "application/x-www-form-urlencoded",
@@ -122,7 +121,7 @@
 			var settings = {
 				"async": true,
 				"crossDomain": true,
-				"url": "https://localhost:44317/Api/Usuarios",
+				"url": "http://localhost:59271/Api/Usuarios",
 				"method": "GET",
 				"headers": {
 					"Content-Type": "application/json",
@@ -155,7 +154,7 @@
 						+ '<td>' + value.Id       + '</td>'
 						+ '<td>' + value.Nome    + '</td>'
 						+ '<td>' + value.Login    + '</td>'
-						+ '<td>' + value.Email    + '</td>'
+                   		+ '<td>' + value.Email    + '</td>'
 						+ '<td>' + value.Ativo    + '</td>'
 						+ '<td>' 
 						+ 	'<div    class=\'col-md-12\' style=\'float: right;\'>'
@@ -171,7 +170,3 @@
         $('#tDataGrid').append(row);
 		});
     }
-	
-	
-  
-  
