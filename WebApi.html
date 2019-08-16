@@ -1,0 +1,72 @@
+<html>
+<head>
+    <title>Web Api</title>
+    <link href="css/prettify.css" rel="stylesheet">
+    <link href="css/hemisu-light.css" rel="stylesheet">
+    <link href="css/screen.css" rel="stylesheet" media="screen">
+    <link href="css/classic.css" rel="stylesheet" media="screen">
+</head>
+<body>
+    <div>
+        <form id="formUsu" method="post">
+            <input type="text" name="Id" placeholder="Informar Id do usuário" />
+            <input type="text" name="Usuario" placeholder="Informar nome do usuário" />
+            <input type="text" name="Ativo" placeholder="Informar se é usuário ativo" />
+            <input type="text" name="UsuInc" placeholder="UsuInc" />
+            <input type="text" name="UsuAlt" placeholder="UsuAlt" />
+            <input type="text" name="DatInc" placeholder="DatInc" />
+            <input type="text" name="DatAlt" placeholder="DatAlt" />
+            <input type="submit" value="Cadastrar" />
+        </form>
+        <input type="text" id="UsuPesquisa" placeholder="Pesquisar Usuário" />
+        <input type="button" id="buttomPesquisar " value="Pesquisar" />
+        <div> 
+            id="gridContent"
+        </div>
+
+        <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+        </script>
+
+        <!--jquery.columns.min.js -->
+        <script type="text/javascript"
+                src="jquery.columns.min.js">
+        </script>
+        <script>
+            $('#saveContact').click(function () {
+                $.post('http://localhost:52390/Api/Usuarios',
+                    $('#saveContactForm').serialize(),
+                    function (value) {
+                        GridRefresh();
+                    }, "json");
+
+            });
+            $('#buttomPesquisar').click(function () {
+                $.get('http://localhost:52390/Api/Usuarios') + $('#UsuPesquisa').val(), function (dataApi) {
+                    $(gridContent).html("<div id=\"exemple\"></div>");
+                    $('#example').columns({ data: [dataApi] });
+                });
+                            });
+
+        </script>
+        <script>
+            /*"[{"name":"tbxUsuario","value":""}]"*/
+            function CadastraUsuario() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://localhost:52390/Api/Usuarios',
+                    data: JSON.stringify($('#formUsu').serializeArray()),
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json'
+                })
+            }
+
+            function GridRefresh() {
+                $.get('http://localhost:52390/Api/Usuarios', function (dataApi) {
+                    $(gridContent).html("<div id=\"exemple\"></div>");
+                    $('#example').columns({ data: dataApi });
+                });
+            }
+        </script>
+</body>
+</html>
