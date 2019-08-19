@@ -1,27 +1,7 @@
      /* Ao carregar o documento o mesmo inicia o conteudo desde script*/
     jQuery(document).ready(function(){
-		/* Indica que o evento submit do form irá realizar esta ação agora*/
-		jQuery('#formusuarios').submit(function(){
-			/* Neste contesto 'this' representa o form deste ID  #myform */                
-			var dados = $(this).serialize();
-
-			 var settings = {
-			  "crossDomain": true,
-			  "url": "http://localhost:59271/Api/Autores",
-			  "method": "POST",
-			  "headers": {
-				"Content-Type": "application/x-www-form-urlencoded",
-				"Accept": "*/*"
-			  },
-			  "data": dados
-			}
-
-			$.ajax(settings).done(function (response) {
-			    GetMethod();
-			});
-			
-			return false;
-		});
+		
+		GetMethod(null);
 		
 		jQuery('#bntSalvar').click(function(){
 			 Editing();
@@ -46,8 +26,6 @@
 			$('#Descricao').val("");
 			$('#Ativo select').val("true");
 		});
-		
-		GetMethod();
     });
 
     function GetByID(id){
@@ -70,48 +48,11 @@
 				$('#Id').val(response.Id);
 				$('#Nome').val(response.Nome);
 				$('#Descricao').val(response.Descricao);
-				$('#Ativo select').val(response.Ativo);
 			});
 		
     }
 
-    function Editing(){
-		var dados = $('#formusuarios').serialize();
-		var id = $('#Id').val();
-
-		 var settings = {
-		  "crossDomain": true,
-		  "url": "http://localhost:59271/Api/Autores/"+id,
-		  "method": "PUT",
-		  "headers": {
-			"Content-Type": "application/x-www-form-urlencoded",
-			"Accept": "*/*"
-		  },
-		  "data": dados
-		}
-
-		$.ajax(settings).done(function (response) {
-		    GetMethod();
-		});
-	}
-    
-    function Deleting(id){
-        var settings = {
-         "crossDomain": true,
-         "url": "http://localhost:59271/Api/Autores/"+id,
-         "method": "DELETE",
-         "headers": {
-           "Content-Type": "application/x-www-form-urlencoded",
-           "Accept": "*/*"
-         }
-       }
-
-       $.ajax(settings).done(function (response) {
-           GetMethod();
-       });
-}
-
-    function GetMethod(){
+    function GetMethod(object){
         var settings = {
             "async": true,
             "crossDomain": true,
@@ -151,7 +92,7 @@ function RefrestGrid(contentValue){
                     + '<td>' 
                     + 	'<div    class=\'col-md-12\' style=\'float: right;\'>'
                     + 		'<div    class=\'col-md-6\'>'
-                    + 			'<button class=\'btn btn-block btn-danger col-md-3 ajax\' type=\'button\'  onclick=\'Deleting('+ value.Id +')\'>Remover</button>'
+                    + 			'<button class=\'btn btn-block btn-danger col-md-3 btn-delet-event\' type=\'button\' send-post=\'Autores\' value=\''+ value.Id +'\'>Remover</button>'
                     + 		'</div>'
                     + 		'<div     class=\'col-md-6\'>'
                     + 			'<button  class=\'btn btn-block btn-success col-md-3\'    type=\'button\'  onclick=\'GetByID('+ value.Id +')\'\>Editar</button>'
@@ -160,5 +101,6 @@ function RefrestGrid(contentValue){
                     + '</td>'
                 + '</tr>';
     $('#tDataGrid').append(row);
-    });
+	});
+	SetGridClickEvents()
 }

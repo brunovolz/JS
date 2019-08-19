@@ -1,41 +1,6 @@
      /* Ao carregar o documento o mesmo inicia o conteudo desde script*/
      jQuery(document).ready(function(){
-		/* Indica que o evento submit do form irá realizar esta ação agora*/
-		jQuery('#formusuarios').submit(function(){
-			/* Neste contesto 'this' representa o form deste ID  #myform */                
-			var dados = $(this).serialize();
-
-			 var settings = {
-			  "crossDomain": true,
-			  "url": "http://localhost:59271/Api/generos",
-			  "method": "POST",
-			  "headers": {
-				"Content-Type": "application/x-www-form-urlencoded",
-				"Accept": "*/*"
-			  },
-			  "data": dados
-			}
-
-			$.ajax(settings).done(function (response) {
-			    GetMethod();
-			});
 			
-			return false;
-		});
-		
-		jQuery('#bntSalvar').click(function(){
-			 Editing();
-			 
-			$('#bntSubmit').show();
-			$('#bntSalvar').hide();
-			$('#bntCancelar').hide();
-			
-			$('#Id').val("");
-			$('#Tipo').val("");
-			$('#Descricao').val("");
-			$('#Ativo select').val("true");
-		});
-		
 		jQuery('#bntCancelar').click(function(){
 			$('#bntSubmit').show();
 			$('#bntSalvar').hide();
@@ -44,21 +9,20 @@
 			$('#Id').val("");
 			$('#Tipo').val("");
 			$('#Descricao').val("");
-			$('#Ativo select').val("true");
 		});
 		
-		GetMethod();
+		GetMethod(null);
     });
 
     function GetByID(id){
-        $('#bntSubmit').hide();
-		$('#bntSalvar').show();
+       //$('#bntSubmit').hide();
+		//$('#bntSalvar').show();
 		$('#bntCancelar').show();
 		
         var settings = {
 			"async": true,
 			"crossDomain": true,
-			"url": "http://localhost:59271/Api/generos/"+id,
+			"url": "http://localhost:59271/Api/Generos/"+id,
 			"method": "GET",
 				"headers": {
 					"Content-Type": "application/json",
@@ -70,35 +34,14 @@
 				$('#Id').val(response.Id);
 				$('#Tipo').val(response.Tipo);
 				$('#Descricao').val(response.Descricao);
-				$('#Ativo select').val(response.Ativo);
 			});
 		
     }
-
-    function Editing(){
-		var dados = $('#formusuarios').serialize();
-		var id = $('#Id').val();
-
-		 var settings = {
-		  "crossDomain": true,
-		  "url": "http://localhost:59271/Api/generos/"+id,
-		  "method": "PUT",
-		  "headers": {
-			"Content-Type": "application/x-www-form-urlencoded",
-			"Accept": "*/*"
-		  },
-		  "data": dados
-		}
-
-		$.ajax(settings).done(function (response) {
-		    GetMethod();
-		});
-	}
     
     function Deleting(id){
         var settings = {
          "crossDomain": true,
-         "url": "http://localhost:59271/Api/generos/"+id,
+         "url": "http://localhost:59271/Api/Generos/"+id,
          "method": "DELETE",
          "headers": {
            "Content-Type": "application/x-www-form-urlencoded",
@@ -107,15 +50,15 @@
        }
 
        $.ajax(settings).done(function (response) {
-           GetMethod();
+           GetMethod(null);
        });
 }
 
-    function GetMethod(){
+    function GetMethod(object){
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost:59271/Api/generos",
+            "url": "http://localhost:59271/Api/Generos",
             "method": "GET",
             "headers": {
                 "Content-Type": "application/json",
@@ -137,7 +80,6 @@ function RefrestGrid(contentValue){
                         + 		'<th>ID</th>'
                         + 		'<th>Tipo</th>'
                         + 		'<th>Descrição</th>'
-                        + 		'<th>Ativo</th>'
                         + 		'<th>Opções</th>'
                         + 	'</tr>'
                         + '</tbody>');
@@ -147,7 +89,6 @@ function RefrestGrid(contentValue){
                     + '<td>' + value.Id       + '</td>'
                     + '<td>' + value.Tipo    + '</td>'
                     + '<td>' + value.Descricao    + '</td>'
-                    + '<td>' + value.Ativo    + '</td>'
                     + '<td>' 
                     + 	'<div    class=\'col-md-12\' style=\'float: right;\'>'
                     + 		'<div    class=\'col-md-6\'>'
