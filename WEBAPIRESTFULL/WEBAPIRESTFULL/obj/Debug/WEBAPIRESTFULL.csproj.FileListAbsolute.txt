@@ -175,7 +175,6 @@ C:\Users\hbsis\Desktop\Bruno\WEB2\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPI
 C:\Users\hbsis\Desktop\Bruno\WEB2\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.csproj.CopyComplete
 C:\Users\hbsis\Desktop\Bruno\WEB2\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.dll
 C:\Users\hbsis\Desktop\Bruno\WEB2\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.pdb
-C:\Users\hbsis\Desktop\Bruno\WEB2\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.csprojAssemblyReference.cache
 C:\Users\bruno\Desktop\Bruno\WEB\WEBAPIRESTFULL\WEBAPIRESTFULL\bin\WEBAPIRESTFULL.dll.config
 C:\Users\bruno\Desktop\Bruno\WEB\WEBAPIRESTFULL\WEBAPIRESTFULL\bin\WEBAPIRESTFULL.dll
 C:\Users\bruno\Desktop\Bruno\WEB\WEBAPIRESTFULL\WEBAPIRESTFULL\bin\WEBAPIRESTFULL.pdb
@@ -265,3 +264,6 @@ C:\Users\bruno\Desktop\Bruno\WEB\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIR
 C:\Users\bruno\Desktop\Bruno\WEB\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.csproj.CopyComplete
 C:\Users\bruno\Desktop\Bruno\WEB\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.dll
 C:\Users\bruno\Desktop\Bruno\WEB\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.pdb
+C:\Users\hbsis\Desktop\Bruno\WEB2\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.csprojAssemblyReference.cache
+C:\Users\hbsis\Desktop\Bruno\WEB2\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.Migrations.First.resources
+C:\Users\hbsis\Desktop\Bruno\WEB2\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.csproj.GenerateResource.cache

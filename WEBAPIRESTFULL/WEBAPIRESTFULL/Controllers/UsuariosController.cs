@@ -77,7 +77,7 @@ namespace WEBAPIRESTFULL.Controllers
         //[ResponseType(typeof(Usuarios))]
         public IHttpActionResult PostUsuarios(Usuarios usuarios)
         {
-            if (ModelState.Keys.First().ToString() != "usuarios.Id")
+            if (ModelState.Keys.Count > 0 &&  ModelState.Keys.First().ToString() != "usuarios.Id")
             {
                 return BadRequest(ModelState);
             }
