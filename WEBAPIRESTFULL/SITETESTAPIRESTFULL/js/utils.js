@@ -7,7 +7,6 @@ function buildUrlApi(sendpost, id = '') {
     return urlBaseApi + sendpost + id;
 }
 
-
 jQuery(document).ready(function () {
     /* Indica que o evento submit do form irá realizar esta ação agora*/
     jQuery('.form-post').submit(function () {
@@ -16,11 +15,11 @@ jQuery(document).ready(function () {
         var dados = $(this).serialize();
         var sendpost = $(this).attr('send-post');
         var callStr = $(this).attr('call');
-        var method = 'POST';
+        var method = "POST";
 
-        if (Id !== "") {
-            method = 'PUT';
-            Id = "/" + Id;
+        if (id !== "") {
+            method = "PUT";
+            id = "/" + id;
         }
 
         var settings = {
@@ -38,10 +37,21 @@ jQuery(document).ready(function () {
             window[callStr](response);
         });
 
+        $.each(this, function (index, value) {
+            $('[name=\'' + value.name + '\']').val("");
+        });
+
         return false;
     });
 
-    SetGridClickEvents();
+    jQuery('.btn-cancel-form').click(function () {
+        var form = $(this).parent().parent().parent()[0];
+
+        $.each(form, function (index, value) {
+            $('[name=\'' + value.name + '\']').val("");
+        });
+
+    });
 });
 
 function SetGridClickEvents() {
@@ -66,7 +76,7 @@ function SetGridClickEvents() {
 
     $('.btn-editing-event').click(function () {
         if ($('#collapse-btn')[0].innerHTML.indexOf('fa-plus') > -1)
-            $('collapse-btn').click();
+            $('#collapse-btn').click();
 
         var id = $(this).attr('value');
         var sendpost = $(this).attr('send-post');
@@ -83,9 +93,10 @@ function SetGridClickEvents() {
 
         $.ajax(settings).done(function (response) {
             $.each(response, function (index, value) {
-                /*teste Property and value */
-                $('intut[name="' + index + '"]').val(value);
+                $('input[name="' + index + '"]').val(value);
+                $('select[name="' + index + '"]').val(value);
             });
+
             $('#btnCancelar').show();
         });
 

@@ -11,10 +11,10 @@ using System.Web.Http.Description;
 using WEBAPIRESTFULL.Models;
 using System.Web.Http.Cors;
 
-    
+
 namespace WEBAPIRESTFULL.Controllers
 {
-    [EnableCors(origins:"*",headers:"*",methods:"*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class UsuariosController : ApiController
     {
         private readonly BibliotecaContextDB db = new BibliotecaContextDB();
@@ -77,7 +77,7 @@ namespace WEBAPIRESTFULL.Controllers
         //[ResponseType(typeof(Usuarios))]
         public IHttpActionResult PostUsuarios(Usuarios usuarios)
         {
-            if (ModelState.Keys.Count > 0 &&  ModelState.Keys.First().ToString() != "usuarios.Id")
+            if (ModelState.Keys.Count > 0 && ModelState.Keys.First().ToString() != "usuarios.Id")
             {
                 return BadRequest(ModelState);
             }
