@@ -78,12 +78,13 @@ namespace WEBAPIRESTFULL.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                if (ModelState.Keys.First().ToString() != "generos.Id")
+                    return BadRequest(ModelState);
             }
 
             db.Generos.Add(generos);
             db.SaveChanges();
-
+             
             return CreatedAtRoute("DefaultApi", new { id = generos.Id }, generos);
         }
 

@@ -21,7 +21,7 @@ namespace WEBAPIRESTFULL.Controllers
         // GET: api/Livros
         public IQueryable<Livros> GetLivros()
         {
-            return db.Livros;
+            return db.Livros.Where(x => x.Ativo == true);
         }
 
         // GET: api/Livros/5
@@ -78,7 +78,8 @@ namespace WEBAPIRESTFULL.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                if (ModelState.Keys.First().ToString() != "livros.Id")
+                    return BadRequest(ModelState);
             }
 
             db.Livros.Add(livros);
@@ -97,7 +98,7 @@ namespace WEBAPIRESTFULL.Controllers
                 return NotFound();
             }
 
-            db.Livros.Remove(livros);
+            db.Livros.Find(id).Ativo = false;
             db.SaveChanges();
 
             return Ok(livros);

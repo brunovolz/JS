@@ -69,7 +69,7 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>A</b>LT</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>TomeliRola</span>
+        <span class="logo-lg"><b>Inc</span>
       </a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top">
@@ -350,44 +350,17 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
           <li class="treeview">
-            <a href="usuarios.html">
-              <i class="fa   fa-cog"></i> <span>Usuários</span>
+            <a>
+              <i class="fa   fa-cog"></i> <span>Administração</span>
             </a>
-          </li>
-          <li class="treeview">
-            <a href="autores.html">
-              <i class="fa   fa-cog"></i> <span>Autores</span>
-            </a>
-          </li>
-          <li class="treeview">
-            <a href="editoras.html">
-              <i class="fa   fa-cog"></i> <span>Editoras</span>
-            </a>
-          </li>
-          <li class="treeview">
-            <a href="generos.html">
-              <i class="fa   fa-cog"></i> <span>Gêneros</span>
-            </a>
-          </li>
-          <li class="treeview">
-            <a href="livros.html">
-              <i class="fa   fa-cog"></i> <span>Livros</span>
-            </a>
-          </li>
-          <li class="treeview">
-            <a href="index.html">
-              <i class="fa   fa-cog"></i> <span>ADMINISTRAÇÃO</span>
-            </a>
-          </li>
-          <li class="treeview">
-            <a href="index.html">
-              <i class="fa   fa-cog"></i> <span>ADMINISTRAÇÃO</span>
-            </a>
-          </li>
-          <li class="treeview">
-            <a href="index.html">
-              <i class="fa   fa-cog"></i> <span>ADMINISTRAÇÃO</span>
-            </a>
+            <ul class="treeview-menu">
+              <li><a href="usuarios.html"><i class="fa fa-circle-o"></i> Usuários</a></li>
+              <li><a href="autores.html"> <i class="fa fa-circle-o"></i> Autores</a></li>
+              <li><a href="livros.html">  <i class="fa fa-circle-o"></i> Livros</a></li>
+              <li><a href="generos.html"> <i class="fa fa-circle-o"></i> Editoras</a></li>
+              <li><a href="editoras.html"><i class="fa fa-circle-o"></i> Editoras</a></li>
+              <li><a href="locacoes.html"><i class="fa fa-circle-o"></i> Locações</a></li>
+            </ul>
           </li>
         </ul>
       </section>
@@ -409,13 +382,14 @@
 
       <section class="content" style="margin-bottom:0px;padding-bottom:0px;min-height:0px;">
         <!-- Small boxes (Stat box) -->
-        <form call="GetMethod" class="box box-primary  collapsed-box form-post">
+        <form call="GetMethod" send-post="Livros" class="box box-primary collapsed-box form-post">
           <div class="box-header with-border">
             <h3 class="box-title">Livros</h3>
 
             <div class="box-tools pull-right">
-              <button type="button" class="btn btn-block btn-primary" data-widget="collapse"><i
-                  class="fa fa-plus"></i></button>
+              <button id="collapse-btn" type="button" class="btn btn-block btn-primary" data-widget="collapse"><i
+                  class="fa fa-plus"></i>
+              </button>
             </div>
           </div>
           <!-- hidden field -->
@@ -424,66 +398,48 @@
           <div class="box-body">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="Titulo">Título</label>
-                <input type="text" class="form-control" id="Titulo" name="Titulo" placeholder="Título do Livro" />
+                <label for="Registro">Registro</label>
+                <input type="text" class="form-control" id="Registro" name="Registro" placeholder="Número de registro." />
               </div>
               <div class="form-group">
-                <label>Ativo</label>
-                <select name="Ativo" id="Ativo" class="form-control select2" style="width: 100%;">
-                  <option value="true" selected="selected">Ativo</option>
-                  <option value="false">Inativo</option>
+                <label for="Isbn">ISBN</label>
+                <input type="Text" class="form-control" name="Isbn" id="Isbn" placeholder="Número do Isbn." />
+              </div>
+              <div class="form-group">
+                <label for="Editora">Editora</label>
+                <select Id="Editora" name="Editora" class="form-control select2" style="width: 100%;" >
                 </select>
               </div>
-
-
+              <div class="form-group">
+                <label for="Observacoes">Observações</label>
+                <input type="text" class="form-control" id="Observacoes" name="Observacoes" placeholder="Observações" />
+              </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="Registro">Registro</label>
-                <input type="Text" class="form-control" name="Registro" id="Registro" placeholder="Registro do Livro" />
+                <label for="Titulo">Título</label>
+                <input type="Text" class="form-control" name="Titulo" id="Titulo" placeholder="Infome o título do livro." />
               </div>
               <div class="form-group">
-                <label for="ISBN">ISBN</label>
-                <input type="text" class="form-control" name="ISBN" id="ISBN" placeholder="ISBN" />
-              </div>
-              <div class="form-group">
-                <label>Gênero</label>
-                <select name="Genero" id="Genero" class="form-control select2" style="width: 100%;">
-                  <option value="generos" selected="Genero"></option>
+                <label for="Genero">Gênero</label>
+                <select Id="Genero" name="Genero" class="form-control select2" style="width: 100%;" >
                 </select>
               </div>
               <div class="form-group">
-                <label>Editora</label>
-                <select name="Editora" id="Editora" class="form-control select2" style="width: 100%;">
-                  <option value="true" selected="editoras"></option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="Sinopse">Sinopse</label>
-                  <input type="Text" class="form-control" name="Sinopse" id="Sinopse" placeholder="Sinopse" />
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="Observacao">Observação</label>
-                  <input type="Text" class="form-control" name="Observacao" id="Observacao" placeholder="Observacao" />
-                </div>
+                <label for="Sinopse">Sinopse</label>
+                <input type="text" class="form-control" id="Sinopse" name="Sinopse" placeholder="Sinopse" />
               </div>
             </div>
             <!-- /.box-body -->
-
-            <div class="box-footer">
-              <button type="submit" id="bntSubmit" class="btn btn-primary">Finalizar cadastro</button>
-              <button type="button" id="bntSalvar" class="btn btn-primary" style="display:none;">Salvar
-                cadastro</button>
-              <button type="button" id="bntCancelar" class="btn btn-primary" style="display:none;">Cancelar
-                cadastro</button>
+            <div class="box-footer col-md-12">
+              <button type="submit" id="bntSubmit" class="btn btn-primary">Finalizar</button>
+              <button type="button" class="btn btn-primary btn-cancel-form">Cancelar</button>
             </div>
           </div>
         </form>
 
       </section>
+
 
       <section class="content">
         <div class="row">
@@ -507,13 +463,7 @@
                   <tr>
                     <th data-options="field:'Id',width:100">ID</th>
                     <th>Titulo</th>
-                    <th>Registro</th>
-                    <th>Ativo</th>
-                    <th>ISBN</th>
-                    <th>Genero</th>
-                    <th>Editora</th>
-                    <th>Sinopse</th>
-                    <th>Observacao</th>
+                    <th>Descrição</th>
                     <th>Opções</th>
                   </tr>
                 </table>
@@ -757,6 +707,7 @@
     <!-- Custom page script sections -->
     <script src="js/utils.js"></script>
     <script src="js/livros.js"></script>
+
   </scriptsection>
 </body>
 

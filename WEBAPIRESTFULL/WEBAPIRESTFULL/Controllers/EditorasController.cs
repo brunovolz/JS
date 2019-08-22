@@ -21,7 +21,7 @@ namespace WEBAPIRESTFULL.Controllers
         // GET: api/Editoras
         public IQueryable<Editoras> GetEditoras()
         {
-            return db.Editoras;
+            return db.Editoras.Where(x => x.Ativo == true);
         }
 
         // GET: api/Editoras/5
@@ -78,7 +78,8 @@ namespace WEBAPIRESTFULL.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                if (ModelState.Keys.First().ToString() != "editoras.Id")
+                    return BadRequest(ModelState);
             }
 
             db.Editoras.Add(editoras);
@@ -96,8 +97,8 @@ namespace WEBAPIRESTFULL.Controllers
             {
                 return NotFound();
             }
+            db.Editoras.Find(id).Ativo = false;
 
-            db.Editoras.Remove(editoras); 
             db.SaveChanges();
 
             return Ok(editoras);

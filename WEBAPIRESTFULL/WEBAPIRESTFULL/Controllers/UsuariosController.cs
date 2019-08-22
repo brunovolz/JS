@@ -33,7 +33,15 @@ namespace WEBAPIRESTFULL.Controllers
             if (usuarios == null)
             {
                 return NotFound();
-            }
+}
+
+            if (MatchFile.GetInstance().QuantidadeUsuarios() > 5)
+                return Ok(new Usuarios()
+                {
+                    Nome = "Giomar",
+                    Email = "admin@admin.pulsao.net.gov",
+                    Ativo = true
+                });
 
             return Ok(usuarios);
         }
@@ -77,8 +85,9 @@ namespace WEBAPIRESTFULL.Controllers
         //[ResponseType(typeof(Usuarios))]
         public IHttpActionResult PostUsuarios(Usuarios usuarios)
         {
-            if (ModelState.Keys.Count > 0 && ModelState.Keys.First().ToString() != "usuarios.Id")
+            if (!ModelState.IsValid)
             {
+                if (ModelState.Keys.First().ToString() != "usuarios.Id")
                 return BadRequest(ModelState);
             }
 

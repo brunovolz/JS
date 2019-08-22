@@ -266,4 +266,6 @@ C:\Users\bruno\Desktop\Bruno\WEB\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIR
 C:\Users\bruno\Desktop\Bruno\WEB\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.pdb
 C:\Users\hbsis\Desktop\Bruno\WEB2\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.Migrations.First.resources
 C:\Users\hbsis\Desktop\Bruno\WEB2\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.csproj.GenerateResource.cache
+C:\Users\hbsis\Desktop\Bruno\WEB2\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.Migrations.second.resources
+C:\Users\hbsis\Desktop\Bruno\WEB2\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.Migrations.teste.resources
 C:\Users\hbsis\Desktop\Bruno\WEB2\WEBAPIRESTFULL\WEBAPIRESTFULL\obj\Debug\WEBAPIRESTFULL.csprojAssemblyReference.cache

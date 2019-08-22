@@ -183,6 +183,14 @@
     <Compile Include="Migrations\201908201757597_First.Designer.cs">
       <DependentUpon>201908201757597_First.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908221227298_second.cs" />
+    <Compile Include="Migrations\201908221227298_second.Designer.cs">
+      <DependentUpon>201908221227298_second.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908221254211_teste.cs" />
+    <Compile Include="Migrations\201908221254211_teste.Designer.cs">
+      <DependentUpon>201908221254211_teste.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Autores.cs" />
     <Compile Include="Models\BibliotecaContextDB.cs" />
@@ -281,6 +289,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908201757597_First.resx">
       <DependentUpon>201908201757597_First.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908221227298_second.resx">
+      <DependentUpon>201908221227298_second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908221254211_teste.resx">
+      <DependentUpon>201908221254211_teste.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

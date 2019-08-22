@@ -1,5 +1,6 @@
 namespace WEBAPIRESTFULL.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -29,12 +30,13 @@ namespace WEBAPIRESTFULL.Models
 
         public DateTime DatAlt { get; set; }
 
+        [JsonIgnore]
         public virtual Livros Livros { get; set; }
-
+        [JsonIgnore]
         public virtual Usuarios Usuarios { get; set; }
-
+        [JsonIgnore]
         public virtual Usuarios Usuarios1 { get; set; }
-
+        [JsonIgnore]
         public virtual Usuarios Usuarios2 { get; set; }
     }
 }
